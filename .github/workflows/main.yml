@@ -12,13 +12,13 @@ on:
 jobs:
   gh-action-job:
     runs-on: ubuntu-latest
+    timeout-minutes: 300
     steps:
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
         with:
           ## limits ssh access and adds the ssh public key for the user which triggered the workflow
           limit-access-to-actor: false
-          wait-timeout-minutes: 300
       - name: A step that will always fail
         run: |
             echo "this step will wait 10 seconds and always fails"
